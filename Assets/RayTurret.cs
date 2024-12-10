@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class RayTurret : MonoBehaviour
@@ -62,9 +61,7 @@ public class RayTurret : MonoBehaviour
         }
 
         //now if nothing is hitting me, drop the old from my list
-        //this is wrong, need to think about it
-        
-        
+       
         for(int i = 0; i < ImHit.Length; i++)
         {
             if (ImHit[i] != null)
@@ -98,15 +95,12 @@ public class RayTurret : MonoBehaviour
         {
             dir.Normalize();           
             Debug.DrawRay(transform.position, dir * probeDepth, Color.red);
+            //optional: this locks the rotation if anyone is hitting me
             transform.LookAt(transform.position + dir);
 
         }
 
-        //trash the array of hits, we try again on reentry. So much cleaner than hunt and peck
-        /*for (int i = 0; i < ImHit.Length; i++)
-        {
-            ImHit[i] = null;
-        }*/
+   
     }
 
 
