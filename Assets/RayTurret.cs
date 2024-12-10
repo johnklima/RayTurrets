@@ -95,7 +95,11 @@ public class RayTurret : MonoBehaviour
         {
             dir.Normalize();           
             Debug.DrawRay(transform.position, dir * probeDepth, Color.red);
+            
             //optional: this locks the rotation if anyone is hitting me
+            //if not locked, totally different behavior, if I am being hit I cast a ray
+            //and if I am rotated to hit something else, I also cast a ray
+           
             transform.LookAt(transform.position + dir);
 
         }
